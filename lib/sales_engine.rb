@@ -7,6 +7,7 @@ class SalesEngine
     # @merchants = nil
   end
   def from_csv(info)
+    binding.pry
     @items = info[:items]
     @merchants = info[:merchants]
   end

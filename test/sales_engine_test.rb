@@ -1,5 +1,8 @@
 require "./test/test_helper"
 require "./lib/sales_engine"
+require "./lib/merchant_repository"
+require "./lib/item_repository"
+require "pry"
 
 
 class SalesEngineTest < MiniTest::Test
