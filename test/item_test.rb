@@ -1,7 +1,5 @@
 require "./test/test_helper"
 require "./lib/item"
-require "./lib/item_repository"
-require "./lib/sales_engine"
 require "pry"
 
 

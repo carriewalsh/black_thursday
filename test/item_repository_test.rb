@@ -1,5 +1,6 @@
 require "./test/test_helper"
 require "./lib/item_repository"
+require "./lib/item"
 require "pry"
 
 class ItemRepositoryTest < MiniTest::Test

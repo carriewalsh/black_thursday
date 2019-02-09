@@ -1,5 +1,4 @@
-require "csv"
-require "./lib/item"
+
 require "./lib/sales_engine"
 
 class ItemRepository < SalesEngine
