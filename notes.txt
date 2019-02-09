@@ -1,0 +1,18 @@
+all requires must be require_relative
+clone blackthursdayspecharness into main dir
+
+
+
+
+File I/O = input/output to and from files
+-data needs to be stored somewhere when program is not running
+- Ruby IO has the methods read, write, gets, puts, readline, getc, and printf (for example)
+    - puts goes to the next line, print stays on the current line
+aFile = File.new("filename","mode") -> cannot be associated with a block
+aFile.close
+F.open("filename","mode") do |aFile| asdfasdf; end -> creates new File object - can be associated with a block
+content = aFile.sysread(20) -> reads first 20 characters of the file - pointer is placed at char. 21
+aFile.syswrite("ABCDEF") -> writes "ABCDEF" into file
+arr = IO.readlines("input.txt") -> reads files line by line
+puts arr[0]
+puts arr[1]
