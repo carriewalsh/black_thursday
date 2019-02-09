@@ -3,16 +3,7 @@ require "./lib/sales_engine"
 
 class MerchantRepository < SalesEngine
 
-  def initialize(filepath)
-    @merchants = []
-    contents = CSV.open filepath, headers: true, header_converters: :symbol
-    contents.each do |row|
-      name = row[:name]
-      id = row[:id]
-      merchant = Merchant.new(name: name, id: id)
-      @merchants << merchant
-    end
-    # binding.pry
+  def initialize
   end
 
   def all

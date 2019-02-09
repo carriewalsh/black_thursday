@@ -3,8 +3,8 @@ require "csv"
 class SalesEngine
   attr_reader :items, :merchants
   def initialize
-    @items = nil
-    @merchants = nil
+    # @items = nil
+    # @merchants = nil
   end
   def from_csv(info)
     @items = info[:items]
@@ -14,9 +14,9 @@ class SalesEngine
   #   @items
   # end
 
-  def get_items(filepath)
+  def get_items
     @items = []
-    contents = CSV.open filepath, headers: true, header_converters: :symbol
+    contents = CSV.open "./test/item_fixture.csv", headers: true, header_converters: :symbol
     contents.each do |row|
       id = row[:id]
       name = row[:name]
@@ -30,9 +30,10 @@ class SalesEngine
       @items << item
     end
   end
-  def get_merchants(filepath)
+
+  def get_merchants
     @merchants = []
-    contents = CSV.open filepath, headers: true, header_converters: :symbol
+    contents = CSV.open "./test/merch_fixture.csv", headers: true, header_converters: :symbol
     contents.each do |row|
       name = row[:name]
       id = row[:id]

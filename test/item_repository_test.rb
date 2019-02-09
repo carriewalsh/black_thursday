@@ -5,7 +5,8 @@ require "pry"
 
 class ItemRepositoryTest < MiniTest::Test
   def setup
-    @item_repo = ItemRepository.new("./test/item_fixture.csv")
+    @item_repo = ItemRepository.new
+    @item_repo.get_items
   end
 
   def test_item_repo_exists

@@ -5,7 +5,7 @@ require "pry"
 
 class MerchantRepositoryTest < Minitest::Test
   def setup
-    @merch_repo = MerchantRepository.new("./test/merch_fixture.csv") #the argument for this is a file
+    @merch_repo = MerchantRepository.new #the argument for this is a file
 
   end
 
