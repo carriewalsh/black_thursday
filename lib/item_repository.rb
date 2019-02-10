@@ -1,7 +1,9 @@
-
 require "./lib/sales_engine"
+
 class ItemRepository < SalesEngine
+  attr_reader :items
   def initialize
+    @items = []
   end
 
 

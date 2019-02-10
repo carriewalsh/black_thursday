@@ -1,22 +1,18 @@
 require "csv"
 
 class SalesEngine
-  attr_reader :items, :merchants
+  attr_reader :item_repo, :merchant_repo
   def initialize
-    # @items = nil
-    # @merchants = nil
+    @item_repo = ItemRepository.new
+    @merchant_repo = MerchantRepository.new
   end
   def from_csv(info)
-    binding.pry
-    @items = info[:items]
-    @merchants = info[:merchants]
+    # :items = info[:items]
+    # :merchants = info[:merchants]
   end
-  # def items
-  #   @items
-  # end
+
 
   def get_items
-    @items = []
     contents = CSV.open "./test/item_fixture.csv", headers: true, header_converters: :symbol
     contents.each do |row|
       id = row[:id]
@@ -33,7 +29,6 @@ class SalesEngine
   end
 
   def get_merchants
-    @merchants = []
     contents = CSV.open "./test/merch_fixture.csv", headers: true, header_converters: :symbol
     contents.each do |row|
       name = row[:name]

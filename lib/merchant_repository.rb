@@ -2,8 +2,9 @@ require "csv"
 require "./lib/sales_engine"
 
 class MerchantRepository < SalesEngine
-
+  attr_reader :merchants
   def initialize
+    @merchants = []
   end
 
   def all
