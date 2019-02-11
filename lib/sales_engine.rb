@@ -13,7 +13,7 @@ class SalesEngine
 
 
   def get_items
-    contents = CSV.open "./test/item_fixture.csv", headers: true, header_converters: :symbol
+    contents = CSV.open "./data/items.csv", headers: true, header_converters: :symbol
     contents.each do |row|
       id = row[:id]
       name = row[:name]
@@ -29,7 +29,7 @@ class SalesEngine
   end
 
   def get_merchants
-    contents = CSV.open "./test/merch_fixture.csv", headers: true, header_converters: :symbol
+    contents = CSV.open "./data/merchants.csv", headers: true, header_converters: :symbol
     contents.each do |row|
       name = row[:name]
       id = row[:id]
