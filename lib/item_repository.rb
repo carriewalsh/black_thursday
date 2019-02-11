@@ -1,9 +1,13 @@
 require "./lib/sales_engine"
+require "./lib/get_items"
+require "./lib/find_items_by_merchant_id"
 
 class ItemRepository < SalesEngine
+  include GetItems
+  include FindItemsByMerchID
   attr_reader :items
   def initialize
-    @items = []
+    @items = get_items
   end
 
 
@@ -52,10 +56,10 @@ class ItemRepository < SalesEngine
     #returns either [] or instances of Item where the supplied price is in the supplied range (a single ruby range instance is passed in)
   end
 
-  def find_all_by_merchant_id(id)
-    @items.find_all do |item|
-      item.merchant_id.to_s == id.to_s
-    end
-    #returns either [] or instances of Item where the supplied Merchant id matches that supplied
-  end
+  # def find_all_by_merchant_id(id)
+  #   @items.find_all do |item|
+  #     item.merchant_id.to_s == id.to_s
+  #   end
+  #   #returns either [] or instances of Item where the supplied Merchant id matches that supplied
+  # end
 end

@@ -1,11 +1,17 @@
 require "csv"
 require "./lib/sales_engine"
+require "./lib/get_merchants"
+require "./lib/find_merchant_by_id"
+require "./lib/find_items_by_merchant_id"
 
 class MerchantRepository < SalesEngine
+  include FindMerchByID
+  include FindItemsByMerchID
+  include GetMerchants
   attr_reader :merchants, :items
   def initialize
-    @merchants = []
-    @items = []
+    @merchants = get_merchants
+    # @items = self.find_all_by_merchant_id(@id)
   end
 
   def all
@@ -13,12 +19,12 @@ class MerchantRepository < SalesEngine
     #return an array of all known Merchant instances
   end
 
-  def find_by_id(id)
-    @merchants.find do |merchant|
-      merchant.id.to_i == id
-    end
-    #return either nil or instance of Merchant with matching ID
-  end
+  # def find_by_id(id)
+  #   @merchants.find do |merchant|
+  #     merchant.id.to_i == id
+  #   end
+  #   #return either nil or instance of Merchant with matching ID
+  # end
 
   def find_by_name(name)
     @merchants.find do |merchant|

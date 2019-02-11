@@ -1,6 +1,7 @@
 require "./lib/item_repository"
 
 class Item < ItemRepository
+  include FindMerchByID
   attr_reader :id, :name, :description, :unit_price, :created_at, :updated_at, :merchant_id
   def initialize(info)
     @id = info[:id]
@@ -12,6 +13,9 @@ class Item < ItemRepository
     @merchant_id = info[:merchant_id]
   end
 
+  def merchant
+    find_by_id(@id)
+  end
   #returns integer id of the item
   #returns the name of the item
   #returns the description of the item
